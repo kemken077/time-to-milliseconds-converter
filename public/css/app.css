@@ -1,0 +1,41 @@
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+.inputWrapper {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+.subtitlesWrapper {
+  text-align: center;
+}
+
+.inputWrapper input {
+  width: 200px;
+  height: 200px;
+  border: 4px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0 0 0;
+}
+
+.inputWrapper input,
+.colon {
+  font-size: 160px;
+}
+
+input#minutes {
+  padding-right: 20px;
+}
+input#seconds {
+  padding-left: 20px;
+}
