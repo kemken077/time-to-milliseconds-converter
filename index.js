@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = 3002;
+const staticPath = 'public';
 
-app.get('/', (req, res) => {
-  res.send('Hello Sal!');
-});
+app.use(express.static(staticPath));
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
