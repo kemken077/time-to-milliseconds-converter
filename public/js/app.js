@@ -11,7 +11,8 @@ const millisecondsDisplayElement = document.getElementById('milliseconds');
 const oneMinuteInMilliseconds = 60000;
 const oneSecondInMilliseconds = 1000;
 const DEBOUNCE_TIME = 1000;
-const EVENT_TYPE = 'keyup';
+const EVENT_TYPE_KEYUP = 'keyup';
+const EVENT_TYPE_KEYDOWN = 'keydown';
 
 const getMinutesAsMilliseconds = (min) => min * oneMinuteInMilliseconds;
 const getSecondsAsMilliseconds = (seconds) => seconds * oneSecondInMilliseconds;
@@ -52,7 +53,27 @@ function setMillisecondsUIResult() {
   millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
 }
 
-window.addEventListener(EVENT_TYPE, debounce(() => setMillisecondsUIResult(), DEBOUNCE_TIME));
+function autoTab(event) {
+  const maxLength = 2;
+  const emptyValue = 0;
+  const { key } = event;
+  const backspaceKey = 'Backspace';
+  const isBackspaceKeyPress = key === backspaceKey;
+  if (isBackspaceKeyPress) {
+    const hasInputZeroLengthValue = secondsInput.value.length === emptyValue;
+    if (hasInputZeroLengthValue) {
+      minutesInput.focus();
+    }
+  } else {
+    const hasInputMaxLength = minutesInput.value.length === maxLength;
+    if (hasInputMaxLength) {
+      secondsInput.focus();
+    }
+  }
+}
+
+window.addEventListener(EVENT_TYPE_KEYDOWN, debounce((event) => autoTab(event), 0));
+window.addEventListener(EVENT_TYPE_KEYUP, debounce(() => setMillisecondsUIResult(), DEBOUNCE_TIME));
 
 
 
