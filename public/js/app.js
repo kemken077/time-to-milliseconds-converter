@@ -23,13 +23,6 @@ function timeToMilliseconds(minutes, seconds) {
   return minutesInMilliseconds + secondsInMilliseconds;
 }
 
-
-window.addEventListener(EVENT_TYPE, _.debounce(() => {
-  const mins = minutesInput.value;
-  const secs = secondsInput.value;
-  millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
-}, DEBOUNCE_TIME));
-
 function initCopyText() {
   var copyText = millisecondsDisplayElement;
   copyText.select();
@@ -40,7 +33,13 @@ function initCopyText() {
   tooltip.innerHTML = "Copied: " + copyText.value;
 }
 
-function outFunc() {
+function outCopy() {
   var tooltip = document.getElementById('myTooltip');
   tooltip.innerHTML = "Copy to clipboard";
 }
+
+window.addEventListener(EVENT_TYPE, _.debounce(() => {
+  const mins = minutesInput.value;
+  const secs = secondsInput.value;
+  millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
+}, DEBOUNCE_TIME));

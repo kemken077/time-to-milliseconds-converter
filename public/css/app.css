@@ -65,20 +65,17 @@ input#seconds {
   margin-bottom: 0;
 }
 
-.millisecondsWrapper h6 {
+.millisecondsWrapper input {
   margin-top: 5px;
   font-size: 32px;
-}
-
-.millisecondsWrapper h6:hover {
-  cursor: pointer;
-  color: blue;
-  background-color: rgb(202, 205, 205);
+  text-align: center;
 }
 
 .tooltip {
   position: relative;
   display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 .tooltip .tooltiptext {
@@ -87,11 +84,11 @@ input#seconds {
   background-color: #555;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 5px;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  bottom: 80%;
   left: 50%;
   margin-left: -75px;
   opacity: 0;
@@ -109,6 +106,20 @@ input#seconds {
   border-color: #555 transparent transparent transparent;
 }
 
+.tooltip button {
+  margin-top: 20px;
+  height: 40px;
+  width: 200px;
+}
+
+.tooltip:hover button {
+  cursor: pointer;
+  color: blue;
+  background-color: rgb(202, 205, 205);
+  border: 1px solid blue;
+  border-radius: 2px;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -122,5 +133,16 @@ input#seconds {
   .inputWrapper input,
   .colon {
     font-size: 80px;
+  }
+
+  .tooltip button,
+  .millisecondsWrapper input  {
+    padding: 0;
+  }
+  .tooltip button {
+    width: 100%;
+  }
+  .millisecondsWrapper input {
+    width: 99%;
   }
 }
