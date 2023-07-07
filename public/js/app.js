@@ -43,3 +43,11 @@ window.addEventListener(EVENT_TYPE, _.debounce(() => {
   const secs = secondsInput.value;
   millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
 }, DEBOUNCE_TIME));
+
+
+
+
+// TODO:
+// Add validations on inputs, no more than 60 as input value
+// Auto tab from minutes to seconds on typing
+// Auto tab from seconds to minutes when deleting
