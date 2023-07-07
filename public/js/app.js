@@ -79,6 +79,4 @@ window.addEventListener(EVENT_TYPE_KEYUP, debounce(() => setMillisecondsUIResult
 
 
 // TODO:
-// Add validations on inputs, no more than 60 as input value
-// Auto tab from minutes to seconds on typing
-// Auto tab from seconds to minutes when deleting
+// Add testing. (Yes I know TDD, but I'm to eager to build stuff lol)
