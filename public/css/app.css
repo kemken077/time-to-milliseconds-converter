@@ -55,6 +55,27 @@ input#seconds {
   padding-left: 10px;
 }
 
+.millisecondsWrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.millisecondsWrapper p {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.millisecondsWrapper h6 {
+  margin-top: 5px;
+  font-size: 32px;
+}
+
+.millisecondsWrapper h6:hover {
+  cursor: pointer;
+  color: blue;
+  background-color: rgb(202, 205, 205);
+}
+
 @media (max-width: 560px) {
   .inputWrapper input {
     width: 100px;
