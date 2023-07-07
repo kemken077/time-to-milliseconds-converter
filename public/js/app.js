@@ -27,5 +27,20 @@ function timeToMilliseconds(minutes, seconds) {
 window.addEventListener(EVENT_TYPE, _.debounce(() => {
   const mins = minutesInput.value;
   const secs = secondsInput.value;
-  millisecondsDisplayElement.innerText = timeToMilliseconds(mins, secs);
+  millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
 }, DEBOUNCE_TIME));
+
+function initCopyText() {
+  var copyText = millisecondsDisplayElement;
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+
+  var tooltip = document.getElementById('myTooltip');
+  tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function outFunc() {
+  var tooltip = document.getElementById('myTooltip');
+  tooltip.innerHTML = "Copy to clipboard";
+}
