@@ -38,11 +38,21 @@ function outCopy() {
   tooltip.innerHTML = "Copy to clipboard";
 }
 
-window.addEventListener(EVENT_TYPE, _.debounce(() => {
+function debounce(fn, timeout) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { fn.apply(this, args) }, timeout);
+  };
+}
+
+function setMillisecondsUIResult() {
   const mins = minutesInput.value;
   const secs = secondsInput.value;
   millisecondsDisplayElement.value = timeToMilliseconds(mins, secs);
-}, DEBOUNCE_TIME));
+}
+
+window.addEventListener(EVENT_TYPE, debounce(() => setMillisecondsUIResult(), DEBOUNCE_TIME));
 
 
 
